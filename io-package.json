@@ -1,0 +1,169 @@
+{
+    "common": {
+        "name": "trashschedule",
+        "version": "0.0.3",
+        "news": {
+            "0.0.2": {
+                "en": "added global offset in days",
+                "de": "Globaler Offset in Tagen hinzugefügt"
+            },
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung"
+            }
+        },
+        "title": "Trash Schedule",
+        "titleLang": {
+            "en": "Trash Schedule",
+            "de": "Müllabfuhr-Zeitplan"
+        },
+        "desc": {
+            "en": "Calculates the days until next trash pickup",
+            "de": "Berechnet die Tage bis zur nächsten Müllabfuhr"
+        },
+        "authors": [
+            "Matthias Kleine <info@haus-automatisierung.com>"
+        ],
+        "keywords": [
+            "trash",
+            "calendar",
+            "muell",
+            "muellabfuhr"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "trashschedule.png",
+        "extIcon": "https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png",
+        "enabled": true,
+        "readme": "https://github.com/klein0r/ioBroker.trashschedule/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "date-and-time",
+        "compact": true,
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "nextseparator": ",",
+        "skipsamedayathour": 18,
+        "globaloffset": 0
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+          "_id":  "info",
+          "type": "channel",
+          "common": {
+            "name": "Information"
+          },
+          "native": {}
+        },
+        {
+          "_id":  "info.connection",
+          "type": "state",
+          "common": {
+            "role":  "indicator.reachable",
+            "name":  "If connected to ical device",
+            "type":  "boolean",
+            "read":  true,
+            "write": false,
+            "def":   false
+          },
+          "native": {}
+        },
+        {
+          "_id":  "type",
+          "type": "channel",
+          "common": {
+            "name": "Type"
+          },
+          "native": {}
+        },
+        {
+          "_id":  "next",
+          "type": "channel",
+          "common": {
+            "name": "Next"
+          },
+          "native": {}
+        },
+        {
+            "_id": "next.types",
+            "type": "state",
+            "common": {
+                "name": "Next types",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "next.typestext",
+            "type": "state",
+            "common": {
+                "name": "Next types as text",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "next.daysleft",
+            "type": "state",
+            "common": {
+                "name": "Next days left",
+                "type": "number",
+                "role": "value",
+                "unit": "days",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "next.date",
+            "type": "state",
+            "common": {
+                "name": "Next date",
+                "type": "string",
+                "role": "date.start",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "next.dateformat",
+            "type": "state",
+            "common": {
+                "name": "Next date format",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "next.weekday",
+            "type": "state",
+            "common": {
+                "name": "Next week day",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
+}
