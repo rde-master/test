@@ -1,47 +1,86 @@
 {
     "common": {
-        "name": "trashschedule",
-        "version": "0.0.3",
+        "name": "template",
+        "version": "0.0.1",
         "news": {
-            "0.0.2": {
-                "en": "added global offset in days",
-                "de": "Globaler Offset in Tagen hinzugefügt"
-            },
             "0.0.1": {
                 "en": "initial release",
-                "de": "Erstveröffentlichung"
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
             }
         },
-        "title": "Trash Schedule",
+        "title": "Template (JavaScript)",
         "titleLang": {
-            "en": "Trash Schedule",
-            "de": "Müllabfuhr-Zeitplan"
+            "en": "Template (JavaScript)",
+            "de": "Vorlage (JavaScript)",
+            "ru": "Шаблон (JavaScript)",
+            "pt": "Modelo (JavaScript)",
+            "nl": "Sjabloon (JavaScript)",
+            "fr": "Modèle (JavaScript)",
+            "it": "Modello (JavaScript)",
+            "es": "Plantilla (JavaScript)",
+            "pl": "Szablon (JavaScript)",
+            "zh-cn": "范本（JavaScript）"
         },
         "desc": {
-            "en": "Calculates the days until next trash pickup",
-            "de": "Berechnet die Tage bis zur nächsten Müllabfuhr"
+            "en": "Template for adapter development",
+            "de": "Vorlage für die Adapterentwicklung",
+            "ru": "Шаблон для разработки адаптера",
+            "pt": "Modelo para desenvolvimento de adaptadores",
+            "nl": "Sjabloon voor adapterontwikkeling",
+            "fr": "Modèle pour le développement de l'adaptateur",
+            "it": "Modello per lo sviluppo dell'adattatore",
+            "es": "Plantilla para desarrollo de adaptadores",
+            "pl": "Szablon do opracowania adaptera",
+            "zh-cn": "适配器开发的模板"
         },
         "authors": [
-            "Matthias Kleine <info@haus-automatisierung.com>"
+            "Author <author@mail.com>"
         ],
         "keywords": [
-            "trash",
-            "calendar",
-            "muell",
-            "muellabfuhr"
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
         "main": "main.js",
-        "icon": "trashschedule.png",
-        "extIcon": "https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png",
+        "icon": "template.png",
         "enabled": true,
-        "readme": "https://github.com/klein0r/ioBroker.trashschedule/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/template.png",
+        "readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
-        "type": "date-and-time",
+        "type": "general",
         "compact": true,
         "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "Template (JavaScript)",
+                "de": "Vorlage (JavaScript)",
+                "ru": "Шаблон (JavaScript)",
+                "pt": "Modelo (JavaScript)",
+                "nl": "Sjabloon (JavaScript)",
+                "fr": "Modèle (JavaScript)",
+                "it": "Modello (JavaScript)",
+                "es": "Plantilla (JavaScript)",
+                "pl": "Szablon (JavaScript)",
+                "zh-cn": "范本（JavaScript）"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"
@@ -49,121 +88,9 @@
         ]
     },
     "native": {
-        "nextseparator": ",",
-        "skipsamedayathour": 18,
-        "globaloffset": 0
+        "option1": true,
+        "option2": "42"
     },
     "objects": [],
-    "instanceObjects": [
-        {
-          "_id":  "info",
-          "type": "channel",
-          "common": {
-            "name": "Information"
-          },
-          "native": {}
-        },
-        {
-          "_id":  "info.connection",
-          "type": "state",
-          "common": {
-            "role":  "indicator.reachable",
-            "name":  "If connected to ical device",
-            "type":  "boolean",
-            "read":  true,
-            "write": false,
-            "def":   false
-          },
-          "native": {}
-        },
-        {
-          "_id":  "type",
-          "type": "channel",
-          "common": {
-            "name": "Type"
-          },
-          "native": {}
-        },
-        {
-          "_id":  "next",
-          "type": "channel",
-          "common": {
-            "name": "Next"
-          },
-          "native": {}
-        },
-        {
-            "_id": "next.types",
-            "type": "state",
-            "common": {
-                "name": "Next types",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "next.typestext",
-            "type": "state",
-            "common": {
-                "name": "Next types as text",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "next.daysleft",
-            "type": "state",
-            "common": {
-                "name": "Next days left",
-                "type": "number",
-                "role": "value",
-                "unit": "days",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "next.date",
-            "type": "state",
-            "common": {
-                "name": "Next date",
-                "type": "string",
-                "role": "date.start",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "next.dateformat",
-            "type": "state",
-            "common": {
-                "name": "Next date format",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "next.weekday",
-            "type": "state",
-            "common": {
-                "name": "Next week day",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+    "instanceObjects": []
 }
