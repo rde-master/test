@@ -28,16 +28,15 @@ class Trashschedule extends utils.Adapter {
             for (const t in trashTypesConfig) {
                 const trashType = trashTypesConfig[t];
                 const trashName = trashType.name.trim();
-				 this.log.warn("ohhhhhh jetzt??????");
-                /*
+				this.log.warn('gehts jetzt endlich mal?');
                 this.setObjectNotExists('type.' + trashName, {
                     type: 'channel',
                     common: {
                         name: 'Type ' + trashName
                     },
                     native: {}
-                });		
-                this.log.warn("ohhhhhh jetzt??????");
+                });
+
                 this.setObjectNotExists('type.' + trashName + '.nextdate', {
                     type: 'state',
                     common: {
@@ -86,7 +85,6 @@ class Trashschedule extends utils.Adapter {
                     },
                     native: {}
                 });
-                */
             }
         }
 
