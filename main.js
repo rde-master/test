@@ -18,7 +18,7 @@ class Template extends utils.Adapter {
      */
     constructor(options) {
         super({
-            ...options,
+            
             name: 'template',
         });
         this.on('ready', this.onReady.bind(this));
